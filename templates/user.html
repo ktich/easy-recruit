@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    User
+{% endblock %}
+
+{% block main %}
+<div class=main-container id="user">
+<h1>Are you an applicant or a staff member?</h1>
+<p>Welcome to EasyRecruit! If you are a staff member, please click "Staff". If you would like to see open positions or submit an application,
+please click Applicant.</p>
+<div class="user-buttons">
+        <a href="/login"><button type="button" class="btn btn-dark">Applicant</button></a>
+        <a href="/stafflogin"><button type="button" class="btn btn-dark">Staff</button></a>
+        </div>
+    </ul>
+    </div>
+
+{% endblock %}

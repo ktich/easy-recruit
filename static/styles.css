@@ -1,0 +1,49 @@
+.btn{
+    color: white;
+}
+
+#reviewtable{
+    font-size: 11px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.td-align {
+    vertical-align:middle;
+}
+
+.main-container{
+    padding-top:30px;
+    padding-bottom:30px;
+}
+
+#reviewbtn{
+    display: block;
+    margin: 0px auto;
+}
+
+h1{
+    padding-top: 10px;
+    padding-bottom:10px;
+}
+
+h2{
+    font-size: 24px;
+}
+
+h3{
+    font-size:18px;
+}
+
+button{
+    margin: 20px;
+}
+
+#user{
+    width: 60%;
+    margin: auto;
+}
+
+.user-buttons{
+    text-align: center;
+}

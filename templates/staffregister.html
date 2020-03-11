@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Staff Register
+{% endblock %}
+
+{% block main %}
+
+<h1>Staff Registration</h1>
+<p>Please note: this registration is for staff members only. If your email address is not recognised, you will not be able to register.</p>
+
+    <form action="/staffregister" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" id = "emptyfield" name="email" placeholder="Email" type="text" required>
+        </div>
+        <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" id="emptyfield" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="form-group">
+            <input id="emptyfield" class="form-control" name="password" placeholder="Password" type="password" required>
+        </div>
+        <div class="form-group">
+            <input id="emptyfield" class="form-control" name="confirmation" placeholder="Retype password" type="password" required>
+        </div>
+        <button id = onclick class="btn btn-primary" type="submit" event="submit">Register</button>
+    </form>
+    <p>
+        Not an applicant? Login through the <a href="/stafflogin">staff portal</a>.
+    </p>
+
+
+
+{% endblock %}

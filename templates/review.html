@@ -1,0 +1,61 @@
+{# For javascript code, adapted: https://www.w3schools.com/jsref/prop_checkbox_required.asp #}
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Applicant Review
+{% endblock %}
+
+{% block main %}
+
+<div class="main-container">
+    <h1>Applicant Review</h1>
+    <p>Please select "Accept" or "Reject" for each candidate, then press submit. Please note, if there are no candidates
+    left to review, the space below will be blank.</p>
+
+<form id="review" action="/review" method="post">
+    <table id="reviewtable" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+          <th scope="col" col width="100px">Applicant Name</th>
+          <th scope="col" col width="100px">Education: Institution<br>Year<br>Major</br></th>
+          <th scope="col" col width="100px">Interest(s)</th>
+          <th scope="col" col width="150px">Additional Information</th>
+          <th scope="col" col width="200px">CV</th>
+          <th scope="col" col width="100px">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for applicant in newapplicants %}
+        <tr>
+           <td style="vertical-align: middle;">{{ applicant.name }}</td>
+           <td style="vertical-align: middle;">{{ applicant.inst1 }} <br>{{ applicant.year1 }} <br>{{ applicant.major1 }}<br>
+           <br>
+           {{ applicant.inst2}} <br>{{ applicant.year2 }} <br>{{ applicant.major2 }}</td>
+    <td style="vertical-align: middle;">
+        {% for interest in applicant.interests %}
+            {{ interest.interest }}<br>
+        {% endfor %}
+    </td>
+    <td style="vertical-align: middle;">{{ applicant.additional }}</td>
+    <td> <embed src="{{ applicant.cvlink }}" width="600" height="300"></td>
+    <td style="vertical-align: middle;">
+        <select name="decision{{ applicant.name }}">
+            <option value="none">No decision</option>
+            <option value="accept">Accept</option>
+            <option value="reject">Reject</option>
+        </select></td>
+    </tr>
+        {%endfor%}
+
+    </tbody>
+    </table>
+<br>
+<input id="reviewcheck" type="checkbox" name="confirm" required> Confirm that you would like to submit your decisions on these candidates.</checkbox>
+<br>
+<p id="prompt"></p>
+<br>
+<button id="reviewbtn" class="btn btn-primary" type="submit" event="submit">Submit</button>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,139 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Applicant Profile
+{% endblock %}
+
+{% block main %}
+
+<h1>Your Profile</h1>
+
+{% if check == "no" %}
+<p>Sorry - you have already submitted a profile. You cannot submit another profile or edit your current profile at this time.</p>
+
+{% else %}
+<p>To better understand your interests, and past experience, please fill in this short form. Once you submit the form, you will be able
+review and edit your responses at any point.</p><hr>
+
+
+<form id=profile action="/profile" method="post" enctype="multipart/form-data">
+
+<div class="form-row">
+
+      <legend id="emptyfield" class="col-form-label col-sm-2 pt-0">Full name<span style="color:red" required>*</span></legend>
+
+      <div class="col-sm-10">
+
+        <div class="form-check">
+          <input id="emptyfield" type="text" name="name" placeholder="Name" required>
+        </div>
+        </div>
+</div>
+<hr>
+<div class="form-row">
+
+      <legend class="col-form-label col-sm-2 pt-0">Interests<span style="color:red">*</span></legend>
+
+      <div class="col-sm-10">
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="interest_research" id="researchcheck" value="interest_research" checked>
+          <label class="form-check-label" for="researchcheck">Research</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="interest_policy" id="policycheck" value="interest_policy">
+          <label class="form-check-label" for="gridRadios2">Policy</label>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="interest_training" id="trainingcheck" value="interest_training">
+          <label class="form-check-label" for="trainingcheck">Training</label>
+        </div>
+
+<br>
+        </div>
+        </div>
+<hr>
+             <div class="form-row">
+
+              <legend class="col-form-label col-sm-2 pt-0">Education<span style="color:red;">*</span><br>
+              <span style ="font-size:10px">Please specify your last two degrees attained.</span></legend>
+
+             <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="input_uni"> Institution</label>
+                  <input id="emptyfield" type="text" class="form-control" id="input_uni" placeholder="Institution name" name="inst1" required>
+                </div>
+
+            <div class="form-group col-md-6">
+              <label for="input_major"> Major/Concentration</label>
+              <input id="emptyfield" type="text" class="form-control" id="input_major" placeholder="Your major" name="major1" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="input_degree"> Degree Attained</label>
+                <input id="emptyfield" type="text" class="form-control" id="input_degree" placeholder="Degree attained" name="degree1" required>
+             </div>
+            <div class="form-group col-md-6">
+                <label for="input_year"> Year</label>
+                <input id="emptyfield" type="text" class="form-control" id="input_year" placeholder="Year graduated" name="year1" required>
+             </div>
+
+        </div>
+  </div>
+  </div>
+<hr>
+             <div class="row">
+
+              <legend class="col-form-label col-sm-2 pt-0"></legend>
+
+             <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="input_uni"> Institution</label>
+                  <input type="text" class="form-control" id="input_uni" placeholder="Institution name" name="inst2">
+                </div>
+
+            <div class="form-group col-md-6">
+              <label for="input_major"> Major/Concentration</label>
+              <input type="text" class="form-control" id="input_major" placeholder="Your major" name="major2">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="input_degree"> Degree Attained</label>
+                <input type="text" class="form-control" id="input_degree" placeholder="Degree attained" name="degree2">
+             </div>
+
+            <div class="form-group col-md-6">
+                <label for="input_year"> Year</label>
+                <input type="text" class="form-control" id="input_year" placeholder="Year graduated" name="year2">
+             </div>
+  </div>
+  </div>
+  </div>
+
+  <hr>
+
+<div class="form-row">
+
+      <legend class="col-form-label col-sm-2 pt-0">CV<span style="color:red">*</span><br>
+      <span style="font-size:10px;">Please upload your CV or resume in .pdf format.</span></legend>
+
+      <div class="col-sm-10">
+        <input type="file" id="cvupload" name="file" required>
+
+<br>
+        </div>
+        </div>
+<hr>
+    <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Additional Information<br>(optional)<br><span style="font-size:10px;">
+            Is there any other information you would like a potential employer to know? Please fill it in here.
+        </span></legend>
+        <textarea name="additional" rows="5" cols="80" placeholder="Additional information..."></textarea>
+</div>
+<hr>
+        <button id = "onclick" class="btn btn-primary" type="submit" event="submit">Submit</button>
+</form>
+{% endif %}
+
+{% endblock %}

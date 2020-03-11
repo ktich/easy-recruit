@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+
+<h1>Your Profile</h1>
+
+{% if not details %}
+<p>You have not submitted a profile yet. Please visit <a href="/profile">Profile</a> to submit your details.</p>
+<hr>
+{% else %}
+{% for detail in details %}
+You have submitted the following profile for review:
+
+<h2>Personal details</h2>
+<p>Name: {{ detail.name }}</p>
+<p>Interests:<br>
+{% for interest in detail.interests %}
+<span style="padding-left:20px;">{{ interest.interest }}<br></span>
+{% endfor %}
+
+</p>
+<hr>
+<h2>Education</h2>
+<h3>Degree 1:</h3>
+<p>Institution - {{ detail.inst1 }}<br>
+Degree - {{ detail.degree1 }}<br>
+Major - {{ detail.major1 }}</p>
+
+<h3>Degree 2 (if provided):</h3>
+<p>Institution - {{ detail.inst2 }}<br>
+Degree - {{ detail.degree2 }}<br>
+Major - {{ detail.major2 }}</p>
+<hr>
+<h2>CV</h2>
+<embed src="{{ detail.cv }}" width="800" height="800">
+<hr>
+<h2>Additional Information (if provided)</h2>
+<p>{{ detail.additional }}</p>
+<hr>
+{% endfor %}
+{% endif %}
+
+{% endblock %}
