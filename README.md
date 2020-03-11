@@ -15,12 +15,12 @@ is to make profiles easy to read and review on one screen.
 
 ## Technologies
 
-Python 3.6.0
-Javascript
+Python 3.6.0  
+Javascript  
 Bootstrap 4.1.3
-HTML 5
-CSS
-SQLite database
+HTML 5  
+CSS  
+SQLite database  
 Flask 1.0.2
 
 ## Launch
